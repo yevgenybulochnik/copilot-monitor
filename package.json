@@ -1,0 +1,21 @@
+{
+  "name": "copilot-monitor",
+  "version": "0.1.0",
+  "description": "Claude Code-style background monitors for GitHub Copilot CLI: stream events from a long-running command or WebSocket into the session.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build src/main.ts --target=node --format=esm --external @github/copilot-sdk/extension --outfile dist/extension.mjs && bun build src/statusline.ts --target=node --format=esm --outfile dist/statusline.mjs",
+    "install-extension": "bun run build && bun scripts/install.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.4",
+    "typescript": "5.9.3"
+  }
+}
